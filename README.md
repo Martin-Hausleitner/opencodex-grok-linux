@@ -1,13 +1,17 @@
-# OpenCodex + Grok 4.5 High als Codex-Harness (Linux)
+# OpenCodex + Groq als Codex-Harness (Linux) + Superpowers/Skills
 
 Setup-Skill: **Codex Ultra** als Harness, dazwischen der **OpenCodex-Proxy (`ocx`)**,
-dahinter **xAI Grok 4.5 (High)**. `codex` läuft dadurch gegen `grok-4.5` statt gegen OpenAI.
+dahinter **Groq** (groq.com, LPU-Inference, Weekly-Abo). `codex` läuft dadurch gegen
+**Groq-Modelle** statt gegen OpenAI. Plus: Superpowers + das genutzte Skill-Set installieren.
 
-👉 Die vollständige Anleitung steht in **[SKILL.md](SKILL.md)**.
+⚠️ **Groq ≠ Grok** — gemeint ist groq.com (`api.groq.com`), nicht xAI Grok.
 
-Kurz: `ocx init` → `ocx login xai` → `ocx start`, dann in `~/.codex/config.toml`
-`model = "xai/grok-4.5"`, `model_reasoning_effort = "high"`,
-`openai_base_url = "http://127.0.0.1:10100/v1"`.
+👉 Vollständige Anleitung in **[SKILL.md](SKILL.md)**.
 
-Verifiziert am Referenzsystem 31.07.2026 (ocx v2.7.36, Proxy :10100).
-Keine Zugangsdaten enthalten — die xAI-OAuth-Credentials bleiben in `~/.opencodex/`.
+Kurz: `ocx login groq` (API-Key aus console.groq.com/keys) → `ocx init` (Provider groq) →
+`ocx start` → `ocx sync`, dann in `~/.codex/config.toml`
+`model = "groq/<modell>"`, `openai_base_url = "http://127.0.0.1:10100/v1"`.
+Fertig, sobald `ocx status` groq als Default zeigt und `ocx debug usage` echte Groq-Requests listet.
+
+Verifiziert am Referenzsystem 31.07.2026 (ocx v2.7.36, Groq-Provider in registry.ts).
+Keine Zugangsdaten enthalten — der Groq-Key bleibt in `~/.opencodex/`.
